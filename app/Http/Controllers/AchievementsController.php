@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Party;
+use App\Achievements;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PartyController extends Controller
+class AchievementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PartyController extends Controller
      */
     public function index()
     {
-        Party::all();
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class PartyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Achievements  $achievements
      * @return \Illuminate\Http\Response
      */
-    public function show(Party $party)
+    public function show(Achievements $achievements)
     {
-        return $party;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Achievements  $achievements
      * @return \Illuminate\Http\Response
      */
-    public function edit(Party $party)
+    public function edit(Achievements $achievements)
     {
         //
     }
@@ -65,10 +64,10 @@ class PartyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Party  $party
+     * @param  \App\Achievements  $achievements
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Party $party)
+    public function update(Request $request, Achievements $achievements)
     {
         //
     }
@@ -76,20 +75,11 @@ class PartyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Achievements  $achievements
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party)
+    public function destroy(Achievements $achievements)
     {
-        $party->delete();
-        return response()->json(null, 204);
-    }
-
-    public function showWithUserId($id, $users_id){
-        return DB::table('parties')
-        ->where('id', '=', $id)
-        ->where('users_id', '=', $users_id)
-        ->get();
-        // return $party->get();
+        //
     }
 }
