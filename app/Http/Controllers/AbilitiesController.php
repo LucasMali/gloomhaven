@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Party;
+use App\Abilities;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PartyController extends Controller
+class AbilitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PartyController extends Controller
      */
     public function index()
     {
-        return Party::all();
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class PartyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Abilities  $abilities
      * @return \Illuminate\Http\Response
      */
-    public function show(Party $party)
+    public function show(Abilities $abilities)
     {
-        return $party;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Abilities  $abilities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Party $party)
+    public function edit(Abilities $abilities)
     {
         //
     }
@@ -65,10 +64,10 @@ class PartyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Party  $party
+     * @param  \App\Abilities  $abilities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Party $party)
+    public function update(Request $request, Abilities $abilities)
     {
         //
     }
@@ -76,18 +75,11 @@ class PartyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Party  $party
+     * @param  \App\Abilities  $abilities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party)
+    public function destroy(Abilities $abilities)
     {
-        $party->delete();
-        return response()->json(null, 204);
-    }
-
-    public function showWithUserId(Party $party, $users_id){
-        return $party
-        ->where('users_id', $users_id)
-        ->get();
+        //
     }
 }

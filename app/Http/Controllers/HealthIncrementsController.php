@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Party;
+use App\HealthIncrements;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PartyController extends Controller
+class HealthIncrementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PartyController extends Controller
      */
     public function index()
     {
-        return Party::all();
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class PartyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function show(Party $party)
+    public function show(HealthIncrements $healthIncrements)
     {
-        return $party;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Party  $party
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function edit(Party $party)
+    public function edit(HealthIncrements $healthIncrements)
     {
         //
     }
@@ -65,10 +64,10 @@ class PartyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Party  $party
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Party $party)
+    public function update(Request $request, HealthIncrements $healthIncrements)
     {
         //
     }
@@ -76,18 +75,11 @@ class PartyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Party  $party
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party)
+    public function destroy(HealthIncrements $healthIncrements)
     {
-        $party->delete();
-        return response()->json(null, 204);
-    }
-
-    public function showWithUserId(Party $party, $users_id){
-        return $party
-        ->where('users_id', $users_id)
-        ->get();
+        //
     }
 }

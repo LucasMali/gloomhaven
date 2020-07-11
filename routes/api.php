@@ -20,8 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('party', function (){
-    return Party::all();
-});
+Route::get('party', 'PartyController@index');
+Route::get('party/{usersId}', 'PartyController@showWithUserId');
 
-Route::get('party/{id}/{users_id}', 'PartyController@showWithUserId');
+Route::get('classes', 'ClassesController@index');
+
+Route::get('characters', 'CharactersController@index');
+Route::get('characters/{usersId}', 'CharactersController@showWithUserId');
+
