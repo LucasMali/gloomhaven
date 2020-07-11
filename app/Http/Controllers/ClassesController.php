@@ -44,9 +44,32 @@ class ClassesController extends Controller
      * @param  \App\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function show(Classes $classes)
+    public function show(Classes $classes, $id)
     {
-        //
+        return $classes->find($id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Classes $classes
+     * @param $name
+     * @return \Illuminate\Http\Response
+     */
+    public function showByName(Classes $classes, $name)
+    {
+        return $classes->where('name', 'like', '%'.$name.'%')->get();
+    }
+
+      /**
+     * Display the specified resource.
+     *
+     * @param  \App\Classes  $classes
+     * @return \Illuminate\Http\Response
+     */
+    public function showByUserId(Classes $classes, $userId)
+    {
+        return $classes->where('user_id', $userId)->get();
     }
 
     /**
