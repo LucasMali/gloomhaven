@@ -15,7 +15,7 @@ class PartyController extends Controller
      */
     public function index()
     {
-        return Party::all();
+        Party::all();
     }
 
     /**
@@ -85,9 +85,11 @@ class PartyController extends Controller
         return response()->json(null, 204);
     }
 
-    public function showWithUserId(Party $party, $users_id){
-        return $party
-        ->where('users_id', $users_id)
+    public function showWithUserId($id, $users_id){
+        return DB::table('parties')
+        ->where('id', '=', $id)
+        ->where('users_id', '=', $users_id)
         ->get();
+        // return $party->get();
     }
 }

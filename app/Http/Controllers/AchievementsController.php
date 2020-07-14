@@ -14,7 +14,7 @@ class AchievementsController extends Controller
      */
     public function index()
     {
-        return Achievements::all();
+        //
     }
 
     /**
@@ -41,26 +41,13 @@ class AchievementsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Achievements $achievements
-     * @param $id
-     * @param $type
+     * @param  \App\Achievements  $achievements
      * @return \Illuminate\Http\Response
      */
-    public function show(Achievements $achievements, $id)
+    public function show(Achievements $achievements)
     {
-        return $achievements->find($id);
+        //
     }
-
-    public function showByType(Achievements $achievements, $type)
-    {
-        return $achievements->where('type', $type)->get();
-    }
-
-    public function showByCampaignId(Achievements $achievements, $campaignId)
-    {
-        return $achievements->where('campaign_id', $campaignId)->get();
-    }
-
 
     /**
      * Show the form for editing the specified resource.
