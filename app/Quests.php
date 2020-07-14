@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Achievements extends Model
+class Quests extends Model
 {
     protected $fillable = [
-        'name',
+        'title',
         'conditions',
-        'campaign_id',
-        'type'
+        'reward',
     ];
 }

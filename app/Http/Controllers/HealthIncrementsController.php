@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Achievements;
+use App\HealthIncrements;
 use Illuminate\Http\Request;
 
-class AchievementsController extends Controller
+class HealthIncrementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AchievementsController extends Controller
      */
     public function index()
     {
-        return Achievements::all();
+        //
     }
 
     /**
@@ -41,34 +41,21 @@ class AchievementsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Achievements $achievements
-     * @param $id
-     * @param $type
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function show(Achievements $achievements, $id)
+    public function show(HealthIncrements $healthIncrements)
     {
-        return $achievements->find($id);
+        //
     }
-
-    public function showByType(Achievements $achievements, $type)
-    {
-        return $achievements->where('type', $type)->get();
-    }
-
-    public function showByCampaignId(Achievements $achievements, $campaignId)
-    {
-        return $achievements->where('campaign_id', $campaignId)->get();
-    }
-
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Achievements  $achievements
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function edit(Achievements $achievements)
+    public function edit(HealthIncrements $healthIncrements)
     {
         //
     }
@@ -77,10 +64,10 @@ class AchievementsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Achievements  $achievements
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Achievements $achievements)
+    public function update(Request $request, HealthIncrements $healthIncrements)
     {
         //
     }
@@ -88,10 +75,10 @@ class AchievementsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Achievements  $achievements
+     * @param  \App\HealthIncrements  $healthIncrements
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Achievements $achievements)
+    public function destroy(HealthIncrements $healthIncrements)
     {
         //
     }

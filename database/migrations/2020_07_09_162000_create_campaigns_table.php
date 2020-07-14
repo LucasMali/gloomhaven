@@ -32,6 +32,10 @@ class CreateCampaignsTable extends Migration
             [
                 'name' => 'Jaws',
                 'id' => Campaign::JAWS
+            ],
+            [
+                'name' => 'Frosthaven',
+                'id' => Campaign::FROSTHAVEN
             ]
         );
     }

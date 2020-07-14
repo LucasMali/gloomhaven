@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Achievements;
+use App\Classes;
 use Illuminate\Http\Request;
 
-class AchievementsController extends Controller
+class ClassesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AchievementsController extends Controller
      */
     public function index()
     {
-        return Achievements::all();
+        return Classes::all();
     }
 
     /**
@@ -41,34 +41,44 @@ class AchievementsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Achievements $achievements
-     * @param $id
-     * @param $type
+     * @param  \App\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function show(Achievements $achievements, $id)
+    public function show(Classes $classes, $id)
     {
-        return $achievements->find($id);
+        return $classes->find($id);
     }
 
-    public function showByType(Achievements $achievements, $type)
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Classes $classes
+     * @param $name
+     * @return \Illuminate\Http\Response
+     */
+    public function showByName(Classes $classes, $name)
     {
-        return $achievements->where('type', $type)->get();
+        return $classes->where('name', 'like', '%'.$name.'%')->get();
     }
 
-    public function showByCampaignId(Achievements $achievements, $campaignId)
+      /**
+     * Display the specified resource.
+     *
+     * @param  \App\Classes  $classes
+     * @return \Illuminate\Http\Response
+     */
+    public function showByUserId(Classes $classes, $userId)
     {
-        return $achievements->where('campaign_id', $campaignId)->get();
+        return $classes->where('user_id', $userId)->get();
     }
-
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Achievements  $achievements
+     * @param  \App\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Achievements $achievements)
+    public function edit(Classes $classes)
     {
         //
     }
@@ -77,10 +87,10 @@ class AchievementsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Achievements  $achievements
+     * @param  \App\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Achievements $achievements)
+    public function update(Request $request, Classes $classes)
     {
         //
     }
@@ -88,10 +98,10 @@ class AchievementsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Achievements  $achievements
+     * @param  \App\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Achievements $achievements)
+    public function destroy(Classes $classes)
     {
         //
     }

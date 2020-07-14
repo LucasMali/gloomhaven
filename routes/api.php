@@ -20,8 +20,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('party', function (){
-    return Party::all();
-});
+/*
+ * Party
+ */
+Route::get('v1/party', 'PartyController@index');
+Route::get('v1/party/{usersId}', 'PartyController@showWithUserId');
 
-Route::get('party/{id}/{users_id}', 'PartyController@showWithUserId');
+/*
+ * Classes
+ */
+Route::get('v1/classes', 'ClassesController@index');
+Route::get('v1/classes/{id}', 'ClassesController@show');
+Route::get('v1/classes/name/{name}', 'ClassesController@showByName');
+Route::get('v1/classes/user/{userId}', 'ClassesController@showByUserId');
+
+/*
+ * Characters
+ */
+Route::get('v1/characters', 'CharactersController@index');
+Route::get('v1/characters/{usersId}', 'CharactersController@showWithUserId');
+
+/*
+ * Achievements
+ */
+Route::get('v1/achievements', 'AchievementsController@index');
+Route::get('v1/achievements/{id}', 'AchievementsController@show');
+Route::get('v1/achievements/type/{type}', 'AchievementsController@showByType');
+Route::get('v1/achievements/campaign/{id}/{type?}', 'AchievementsController@showByCampaignId');
+
