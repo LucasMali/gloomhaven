@@ -28,18 +28,18 @@
                     @endforelse --}}
                     <td class="actions">
                         <a
-                            href=""
+                            href="{{ action('WorldsController@show', ['world' => $world->id]) }}"
                             alt="View"
                             title="View">
                           View
                         </a>
                         <a
-                            href=""
+                            href="{{ action('WorldsController@edit', ['world' => $world->id]) }}"
                             alt="Edit"
                             title="Edit">
                           Edit
                         </a>
-                    <form action="" method="POST">
+                    <form action="{{ action('WorldsController@destroy', ['world' => $world->id]) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-link" title="Delete" value="DELETE">Delete</button>

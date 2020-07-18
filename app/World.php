@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Worlds extends Model
+class World extends Model
 {
     protected $fillable = [
         'user_id', 'name'

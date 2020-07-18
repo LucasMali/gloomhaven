@@ -16,10 +16,10 @@ class CreatePartiesTable extends Migration
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('worlds_id')->unsigned()->nullable();
-            $table->foreign('worlds_id')->references('id')->on('worlds')->onUpdate('cascade')->onDelete('set null');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('world_id')->unsigned()->nullable();
+            $table->foreign('world_id')->references('id')->on('worlds')->onUpdate('cascade')->onDelete('set null');
             $table->string('name')->unique();
             $table->string('location')->nullable();
             $table->boolean('solo')->default(false);
