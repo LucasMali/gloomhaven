@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\World;
+use App\Worlds;
 
 class WorldTableSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class WorldTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // And now, let's create a few articles in our database:
-        World::create([
+        Worlds::create([
             'name' => $faker->name,
             'user_id' => 1
         ]);
