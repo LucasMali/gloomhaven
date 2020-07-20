@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="name">Name</label>
     <div class="col-sm-10">
-        <input name="name" type="text" class="form-control" placeholder="World Name" value="{{ $worlds->name ?? '' }}"/>
+        <input name="name" type="text" class="form-control" placeholder="World Name" value="{{ $world->name ?? '' }}"/>
         <small class="form-text text-muted">Name of your world.</small>
     </div>
 </div>

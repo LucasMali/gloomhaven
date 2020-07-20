@@ -24,5 +24,11 @@ class UsersTableSeeder extends Seeder
                 'password' => $faker->password
             ]);
         }
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.admin',
+            'password' => \Illuminate\Support\Facades\Hash::make('admin')
+        ]);
     }
 }
