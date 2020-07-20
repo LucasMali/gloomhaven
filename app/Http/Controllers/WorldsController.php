@@ -27,7 +27,7 @@ class WorldsController extends Controller
     public function index()
     {
         // $world = DB::table('worlds')->get();
-        $worlds = World::with('parties')->paginate(10);
+        $worlds = World::where('user_id', Auth::user()->id)->with('parties')->paginate(10);
         return view('worlds.index')->with('worlds', $worlds);
     }
 
@@ -94,10 +94,12 @@ class WorldsController extends Controller
         $users = DB::table('users')
             ->where('id', Auth::user()->id)
             ->get()->pluck('id')->prepend('none');
+
         $parties = DB::table('parties')
             ->where('user_id', Auth::user()->id)
             ->where('world_id', $world->id)
             ->get();
+
         return view('worlds.edit')
             ->with('users', $users)
             ->with('world', $world)

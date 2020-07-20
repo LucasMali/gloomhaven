@@ -2,6 +2,7 @@
 
 use App\Party;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PartyTableSeeder extends Seeder
 {
@@ -16,14 +17,17 @@ class PartyTableSeeder extends Seeder
          Party::truncate(); // Will not work with foreign keys.
 
          $faker = \Faker\Factory::create();
+        $maxUserId = DB::table('users')->orderBy('id', 'DESC')->limit(1)->pluck('id')->get(0);
+        $maxWorldId = DB::table('worlds')->orderBy('id', 'DESC')->limit(1)->pluck('id')->get(0);
 
-         // And now, let's create a few articles in our database:
-         for ($i = 1; $i < 3; $i++) {
+        // And now, let's create a few articles in our database:
+         for ($i = 1; $i < 10; $i++) {
              Party::create([
                  'name' => $faker->sentence,
-                 'users_id' => $i,
+                 'user_id' => rand(1, $maxUserId),
                  'location' => 'home',
-                 'notes' => 'Test'
+                 'notes' => 'Test',
+                 'world_id' => rand(1, $maxWorldId)
              ]);
          }
     }
