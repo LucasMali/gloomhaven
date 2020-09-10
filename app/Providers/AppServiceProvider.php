@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\World\WorldServiceInterface;
+use App\Service\World\WorldService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(
+            WorldServiceInterface::class,
+            WorldService::class
+        );
     }
 }

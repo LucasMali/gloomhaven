@@ -26,3 +26,30 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+
+$factory->define(\App\Party::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'location' => $faker->name,
+        'solo' => $faker->boolean,
+        'reputation' => $faker->randomNumber(),
+        'price_modifier' => $faker->randomNumber(),
+        'donate_gold' => $faker->randomNumber(),
+        'prosperity_city_level' => $faker->randomNumber(),
+        'prosperity_checkmarks' => $faker->randomNumber(),
+        'notes' => $faker->text(),
+        'campaign_id' => $faker->randomNumber(),
+        'users_id' => $faker->randomNumber()
+        ];
+});
+
+$factory->define(\App\World::class, function (Faker $faker) {
+    $userId = $faker->randomNumber();
+    return [
+        'name' => $faker->name,
+        'user_id' => $userId,
+        'parties' => factory(\App\Party::class)->make(['users_id'=>$userId])
+        ];
+});
+

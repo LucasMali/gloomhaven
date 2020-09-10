@@ -19,10 +19,8 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('world', require('./components/world/App.vue').default);
 Vue.component('create', require('./components/world/Create.vue').default);
-Vue.component('fields', require('./components/world/FieldName.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,5 +29,5 @@ Vue.component('fields', require('./components/world/FieldName.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#world',
 });

@@ -2,32 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\World\WorldServiceInterface;
 use App\World;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class WorldsController extends Controller
 {
     /**
+     * @var WorldServiceInterface
+     */
+    private $worldService;
+
+    /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param WorldServiceInterface $worldService
      */
-    public function __construct()
+    public function __construct(WorldServiceInterface $worldService)
     {
+        $this->worldService = $worldService;
         $this->middleware('auth');
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(): View
     {
-        // $world = DB::table('worlds')->get();
-        $worlds = World::where('user_id', Auth::user()->id)->with('parties')->paginate(10);
+        $worlds = $this->worldService->loadWorlds(Auth::user()->id);
         return view('worlds.index')->with('worlds', $worlds);
     }
 

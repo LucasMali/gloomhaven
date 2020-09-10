@@ -12,11 +12,11 @@ class World extends Model
 
     public function party()
     {
-        return $this->hasOne('App\Party');
+        return $this->hasOne(Party::class);
     }
 
     public function parties()
     {
-        return $this->hasMany('App\Party');
+        return $this->hasMany(Party::class);
     }
 }
