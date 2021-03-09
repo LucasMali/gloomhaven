@@ -19,7 +19,7 @@ class CreateAchievementsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->text('conditions')->default('');
+            $table->text('conditions')->nullable();
             $table->bigInteger('campaign_id')->unsigned()->default(0);
             $table->foreign('campaign_id')->references('id')->on('campaign')->onDelete('cascade');
             $table->enum('type', ['party', 'global'])->default('global');

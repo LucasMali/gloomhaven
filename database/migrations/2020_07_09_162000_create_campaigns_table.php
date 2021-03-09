@@ -18,7 +18,7 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaign', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-       });
+        });
 
         DB::table('campaign')->insert(
             [
